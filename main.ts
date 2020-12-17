@@ -1,3 +1,6 @@
+function moveBalle (direction: number) {
+	
+}
 input.onButtonPressed(Button.A, function () {
     if (positionRaquette - 1 >= 0) {
         led.unplot(positionRaquette, 4)
@@ -8,6 +11,11 @@ input.onButtonPressed(Button.A, function () {
 function setPosRaquette (posX: number) {
     led.plot(posX, 4)
 }
+input.onButtonPressed(Button.AB, function () {
+    if (!(isStarted)) {
+        isStarted = true
+    }
+})
 input.onButtonPressed(Button.B, function () {
     if (positionRaquette + 1 <= 4) {
         led.unplot(positionRaquette, 4)
@@ -16,10 +24,15 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 function Init () {
+    positionBalleX = 2
+    positionBalleY = 4
+    speedBalle = 500
+    directionBalle = 1
+    isStarted = false
     Ligne0 = [1, 1, 1, 1, 1]
     Ligne1 = [1, 1, 1, 1, 1]
     setBriques()
-    setBalle(2, 4, false)
+    setBalle(positionBalleX, positionBalleY, false)
     positionRaquette = 2
     setPosRaquette(positionRaquette)
 }
@@ -48,8 +61,15 @@ function setBriques () {
 }
 let Ligne1: number[] = []
 let Ligne0: number[] = []
+let directionBalle = 0
+let speedBalle = 0
+let positionBalleY = 0
+let positionBalleX = 0
+let isStarted = false
 let positionRaquette = 0
 Init()
 basic.forever(function () {
-	
+    if (isStarted) {
+    	
+    }
 })
